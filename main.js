@@ -32,19 +32,27 @@ console.log(min);
 const sec = now.getSeconds();
 console.log(sec);
 
-
-
-console.log(hours);
-
+const hours = now.getHours()
+console.log(hours)
 let newHr = 0;
 
 if(hours >12){
-    newHr = hours -12 + 'PM';
-}else{
-    newHr = hours + 'AM';
+    newHr = hours -12;
+    if(newHr < 10){
+        newHr = '0' + newHr + 'PM'
+    }
+    else{
+        newHr = newHr + 'PM'
+    }
 }
+else{
+    newHr = hours;
 
-// const hours = now.getHours()
-//     if(hours>=12){
-//         console.log(`${hours -12}PM`)
-//     }
+    if(newHr < 10){
+        newHr = '0' + newHr + 'AM'
+    }
+    else{
+        newHr = newHr + 'AM'
+    }
+}
+console.log(newHr);
