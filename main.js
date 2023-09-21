@@ -4,6 +4,13 @@
 */
 const [hr, m, s] = document.querySelectorAll('h1 span');
 
+function changeClass(hr){
+    if(hr >=6 && hr <12) document.body.classList.add('morning');
+    if(hr >=12 && hr <16) document.body.classList.add('afternoon');
+    if(hr >=16 && hr <20) document.body.classList.add('evening');
+    if(hr >=20 || hr <6) document.body.classList.add('night');
+}
+
 setInterval(setTime, 1000);
 function setTime() {
     const now = new Date();
@@ -13,6 +20,8 @@ function setTime() {
     hr.innerText = setNumbers(setHours(hours));
     m.innerText = setNumbers(min);
     s.innerText = setNumbers(sec);
+
+    changeClass(hours)
 }
 
 function setNumbers(num) {
