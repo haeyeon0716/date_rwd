@@ -1,15 +1,23 @@
+/*
+특정시간을 주기로 코드를 반복할 때 
+- setInterval(반복실행할 함수, 반복간격 시간 (ms))
+*/
 const [hr, m, s] = document.querySelectorAll('h1 span');
 
-const now = new Date();
-const min = now.getMinutes();
-const sec = now.getSeconds();
-const hours = now.getHours();
+setInterval(()=>{
+    const now = new Date();
+    const min = now.getMinutes();
+    const sec = now.getSeconds();
+    const hours = now.getHours();
 
-//hours 값은 setHours가 조건에 12를 뺀 값으로 반환
-//반환된 결과값을 다시 바로 setNumbers에 집어넣어서 0을 붙이도록 처리
-hr.innerText = setNumbers(setHours(hours));
-m.innerText = setNumbers(min);
-s.innerText = setNumbers(sec);
+    hr.innerText = setNumbers(setHours(hours));
+    m.innerText = setNumbers(min);
+    s.innerText = setNumbers(sec);
+}, 1000);
+
+
+
+
 
 function setNumbers(num) {
     num < 10 && (num = '0' + num);
