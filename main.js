@@ -4,20 +4,16 @@
 */
 const [hr, m, s] = document.querySelectorAll('h1 span');
 
-setInterval(()=>{
+setInterval(setTime, 1000);
+function setTime() {
     const now = new Date();
     const min = now.getMinutes();
     const sec = now.getSeconds();
     const hours = now.getHours();
-
     hr.innerText = setNumbers(setHours(hours));
     m.innerText = setNumbers(min);
     s.innerText = setNumbers(sec);
-}, 1000);
-
-
-
-
+}
 
 function setNumbers(num) {
     num < 10 && (num = '0' + num);
@@ -28,3 +24,4 @@ function setHours(num){
     num > 12 && (num = num-12);
     return num;
 }
+
